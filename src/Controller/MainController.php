@@ -17,7 +17,6 @@ class MainController extends AbstractController {
 		HttpClientInterface $client,
 		CacheInterface $cache
 	): Response {
-		dd($cache);
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
 
