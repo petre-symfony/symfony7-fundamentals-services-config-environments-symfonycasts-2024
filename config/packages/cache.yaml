@@ -18,4 +18,5 @@ framework:
 
       # Namespaced pools use the above "app" backend by default
       pools:
-        iss_location_pool: null
+        iss_location_pool:
+          default_lifetime: 5
