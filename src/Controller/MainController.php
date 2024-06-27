@@ -16,6 +16,7 @@ class MainController extends AbstractController {
 		HttpClientInterface $client,
 		CacheInterface $issLocationPool
 	): Response {
+		dd($this->getParameter('kernel.project_dir'));
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
 
