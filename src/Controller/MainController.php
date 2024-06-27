@@ -15,11 +15,8 @@ class MainController extends AbstractController {
 	public function homepage(
 		StarshipRepository $starshipRepository,
 		HttpClientInterface $client,
-		CacheInterface $issLocationPool,
-		#[Autowire(param: 'iss_location_cache_ttl')]
-		$issLocationCacheTtl
+		CacheInterface $issLocationPool
 	): Response {
-		dd($issLocationCacheTtl);
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
 
