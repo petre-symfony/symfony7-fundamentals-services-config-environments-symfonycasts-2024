@@ -16,7 +16,7 @@ class MainController extends AbstractController {
 		StarshipRepository $starshipRepository,
 		HttpClientInterface $client,
 		CacheInterface $issLocationPool,
-		$issLocationCacheTtl
+		int $issLocationCacheTtl
 	): Response {
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
