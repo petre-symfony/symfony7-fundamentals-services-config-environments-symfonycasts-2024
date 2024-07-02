@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\StarshipRepository;
+use Symfony\Bridge\Twig\Command\DebugCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,8 @@ class MainController extends AbstractController {
 		StarshipRepository $starshipRepository,
 		HttpClientInterface $client,
 		CacheInterface $issLocationPool,
-		int $issLocationCacheTtl
+		int $issLocationCacheTtl,
+		DebugCommand $twigDebugCommand
 	): Response {
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
