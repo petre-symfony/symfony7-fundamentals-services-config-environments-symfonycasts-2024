@@ -18,6 +18,7 @@ class MainController extends AbstractController {
 		HttpClientInterface $client,
 		CacheInterface $issLocationPool,
 		int $issLocationCacheTtl,
+		#[Autowire(service: 'twig.command.debug')]
 		DebugCommand $twigDebugCommand
 	): Response {
 		$ships = $starshipRepository->findAll();
