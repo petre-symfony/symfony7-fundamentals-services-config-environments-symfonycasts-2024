@@ -20,7 +20,6 @@ class MainController extends AbstractController {
 		HttpClientInterface $client,
 		CacheInterface $issLocationPool
 	): Response {
-		dd($this->getParameter('iss_location_cache_ttl'));
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
 
