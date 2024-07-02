@@ -18,14 +18,9 @@ class MainController extends AbstractController {
 	public function homepage(
 		StarshipRepository $starshipRepository,
 		HttpClientInterface $client,
-		CacheInterface $issLocationPool,
-		int $issLocationCacheTtl,
-		#[Autowire(service: 'twig.command.debug')]
-		DebugCommand $twigDebugCommand
+		CacheInterface $issLocationPool
 	): Response {
-		$output = new BufferedOutput();
-		$twigDebugCommand->run(new ArrayInput([]), $output);
-		dd($output);
+
 		$ships = $starshipRepository->findAll();
 		$myShip = $ships[array_rand($ships)];
 
